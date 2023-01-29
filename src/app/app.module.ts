@@ -10,6 +10,11 @@ import { CoursesComponent } from './courses/courses.component';
 import { StudentsComponent } from './students/students.component';
 import { ClassesComponent } from './classes/classes.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { UserEditComponent } from './admin/user-edit/user-edit.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SystemService } from './shared/SystemService';
+import { MatTableModule } from '@angular/material/table'  
 
 @NgModule({
   declarations: [
@@ -19,14 +24,18 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
     CoursesComponent,
     StudentsComponent,
     ClassesComponent,
-    EnrollmentComponent
+    EnrollmentComponent,
+    UserListComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatTableModule
   ],
-  providers: [],
+  providers: [SystemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
