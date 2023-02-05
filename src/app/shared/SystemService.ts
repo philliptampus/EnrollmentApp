@@ -19,6 +19,18 @@ export class SystemService {
       catchError(this.handleError)
     );
   }
+
+  ExecuteAPI_Post<T>(action: string, params: any = {}): Observable<T> {
+    var apiUrl = this.baseAPIUrl;
+    action = apiUrl + '/' + action;
+    console.log(params);
+    return this.http.post<T>(action, params).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.

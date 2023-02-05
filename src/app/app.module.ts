@@ -15,6 +15,7 @@ import { UserEditComponent } from './admin/user-edit/user-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SystemService } from './shared/SystemService';
 import { MatTableModule } from '@angular/material/table'  
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { MatTableModule } from '@angular/material/table'
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [SystemService],
   bootstrap: [AppComponent]

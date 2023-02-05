@@ -1,1 +1,47 @@
-<p>user-edit works!</p>
+<h2>User Form</h2>
+
+<form   
+(ngSubmit)="save()"
+[formGroup]="userForm">
+    <div *ngIf="errorMessage" style="color: red;">{{errorMessage}}</div>
+    <div>
+        <label for="firstName">First Name
+            <input mat-form-field id="firstName" formControlName="firstName" />
+        </label>
+    </div>
+    <div>
+        <label for="lastName">Last Name
+            <input id="lastName" formControlName="lastName" />
+        </label>
+    </div>
+    <div>
+        <label for="emailAddress">Email Adress
+            <input id="emailAddress" formControlName="emailAddress" />
+        </label>
+    </div>
+    <div>
+        <label for="userName">User Name
+            <input id="userName" formControlName="userName" />
+        </label>
+    </div>
+    <div>
+        <label for="password">Password
+            <input id="password" formControlName="password" />
+        </label>
+    </div>
+
+    <div>
+    <button mat-button
+        type="submit"
+        class="primary">
+        Save
+      </button>
+      <button
+        (click)="close()"
+        type="button"
+        nzGhost
+        class="primary">
+        Close
+      </button>
+    </div>
+</form>
