@@ -28,6 +28,22 @@ export class SystemService {
       catchError(this.handleError)
     );
   }
+  ExecuteAPI_Put<T>(action: string, params: any = {}): Observable<T> {
+    var apiUrl = this.baseAPIUrl;
+    action = apiUrl + '/' + action;
+    console.log(params);
+    return this.http.put<T>(action, params).pipe(
+      catchError(this.handleError)
+    );
+  }
+  ExecuteAPI_Delete<T>(action: string, params: any = {}): Observable<T> {
+    var apiUrl = this.baseAPIUrl;
+    action = apiUrl + '/' + action;
+
+    return this.http.delete<T>(action, { params: params, headers: new HttpHeaders({ 'Accept': 'application/json', 'Content-Type': 'application/json' }) }).pipe(
+      catchError(this.handleError)
+    );
+  }
 
 
 

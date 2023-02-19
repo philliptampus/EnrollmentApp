@@ -58,7 +58,6 @@ export class UserEditComponent {
 
   save() {
     this.errorMessage = "";
-
     for (const i in this.userForm.controls) {
       this.userForm.controls[i].markAsDirty();
       this.userForm.controls[i].updateValueAndValidity();
@@ -76,7 +75,7 @@ export class UserEditComponent {
 
 
   async saveUserToDB() {
-
+    var me = this;
     if (this.userIdParam == 'new') {
       // Create
       const userPayload = { ...this.userModel, ...this.userForm.value };
@@ -89,11 +88,29 @@ export class UserEditComponent {
     }
     else {
       // Update
-      
+      const userPayload = { ...this.userModel, ...this.userForm.value };
+      await this.service.ExecuteAPI_Put<User_Model>("Admin/UpdateUser", userPayload).subscribe(data => {
+        this.router.navigate(['admin/users']);
+      });
     }
-    
-  }
 
+  }
+  async delete() {
+    let ans = confirm("Are you sure you want to delete this user?");
+    if(ans) {
+      await this.service.ExecuteAPI_Delete<boolean>("Admin/DeleteUser/" + this.userIdParam).subscribe(success =>
+        {
+          if(success) {
+            alert("User deleted successfully.");
+            this.router.navigate(['admin/users']);
+          }
+          else {
+            alert("Cannot delete user. Not existing.");
+          }
+        }
+      );
+    }
+  }
   close() {
     this.router.navigate(['admin/users']);
   }
