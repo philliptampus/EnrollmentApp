@@ -1,1 +1,39 @@
-<p>course-details works!</p>
+<h2>Course Form</h2>
+
+<form   
+(ngSubmit)="save()"
+[formGroup]="courseForm">
+    <div *ngIf="errorMessage" style="color: rgba(81, 0, 255, 0.904);">{{errorMessage}}</div>
+    <div>
+        <label for="name">Name
+            <input mat-form-field id="name" formControlName="name" />
+        </label>
+    </div>
+    <div>
+        <label for="description">Description
+            <input id="description" formControlName="description" />
+        </label>
+    </div>
+          
+    <div>
+    <button mat-button
+        type="submit"
+        class="primary">
+        Save
+      </button>
+      <button
+        (click)="delete()"
+        type="button"
+        nzGhost
+        class="primary">
+        Delete
+      </button>
+      <button
+        (click)="close()"
+        type="button"
+        nzGhost
+        class="primary">
+        Close
+      </button>
+    </div>
+</form>

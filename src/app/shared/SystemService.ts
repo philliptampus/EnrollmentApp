@@ -4,6 +4,9 @@ import { catchError, Observable, throwError } from "rxjs";
 
 @Injectable()
 export class SystemService {
+  getCourse() {
+    throw new Error('Method not implemented.');
+  }
   //API Common Method
   private baseAPIUrl = "https://localhost:7172";
 

@@ -312,7 +312,7 @@
   <div style="font-size:large;"><span>Enrollment System</span></div>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <div class="navigation-item" (click)="navigateToPage('students')">Students</div>
-  <div class="navigation-item" (click)="navigateToPage('courses')">Courses</div>
+  <nav> <a routerLink="/courses" routerLinkActive="active" ariaCurrentWhenActive="page">Courses</a></nav>
   <div class="navigation-item" (click)="navigateToPage('enrollment')">Enrollment</div>
   <div class="navigation-item" (click)="navigateToPage('classes')">Classes</div>
   <div class="navigation-item" (click)="navigateToPage('admin/users')">Users</div>

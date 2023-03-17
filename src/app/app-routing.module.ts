@@ -10,7 +10,7 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { StudentsComponent } from './students/students.component';
 
 const routes: Routes = [
-  {path: 'course/:courseId', component: CourseDetailsComponent},
+  {path: 'details/:id', component: CourseDetailsComponent},
   {path: 'courses', component: CoursesComponent},
   {path: 'students', component: StudentsComponent},
   {path: 'enrollment', component: EnrollmentComponent},
@@ -21,7 +21,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(
+    routes,
+    { enableTracing: true } 
+    ) 
+  ],
+  
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
